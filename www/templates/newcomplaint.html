@@ -1,0 +1,79 @@
+<ion-pane>
+  <ion-header-bar align-title="center">
+          <h1 class="title">New Complaint</h1>
+        </ion-header-bar>
+
+        <ion-content class="padding">
+          <div class="list" id="newcomplaint">
+            <form name="complaintForm" class="complaintForm" novalidate ng-submit="saveComplaint(complaint)">
+
+                <h5>Category</h5>
+                <select name="complaintCategory" ng-options="category.id as category.name for category in categories track by category.id" ng-model="complaint.categoryId" ng-required="true"  style="width:100%;">
+                </select>
+                <div class="help-block" ng-if="complaintForm.complaintCategory.$touched" ng-messages="complaintForm.category.$error">
+                  <div ng-messages-include="templates/messages.html"></div>
+                </div>
+
+                <div ng-if="complaint.categoryId">
+                  <p>Sub-category</p>
+                  <select name="complaintCategory" ng-options="category.id as category.name for category in categories track by category.id" ng-model="complaint.categoryId" ng-required="true" style="width:100%;">
+                  </select>
+                  <div class="help-block" ng-if="complaintForm.complaintCategory.$touched" ng-messages="complaintForm.category.$error">
+                    <div ng-messages-include="templates/messages.html"></div>
+                  </div>
+                </div>
+
+              <label class="border-bottom item-input item-floating-label">
+                <span class="input-label">Title </span>
+                <input type="text" placeholder="Title" name="complaintTitle" ng-model="complaint.title" ng-required="true">
+              <div class="help-block" ng-if="complaintForm.complaintTitle.$touched" ng-messages="complaintForm.complaintTitle.$error">
+                <div ng-messages-include="templates/messages.html"></div>
+              </div>
+              </label>
+
+              <label class="border-bottom item-input item-floating-label">
+                <span class="input-label" style="width:100%;">Your Complaint </span>
+                <textarea name="complaintDescription" rows="3" placeholder="Your complaint" ng-model="complaint.description" ng-minlength="5" ng-required="true"></textarea>
+                <div class="help-block" ng-if="complaintForm.complaintDescription.$touched" ng-messages="complaintForm.complaintDescription.$error">
+                  <div ng-messages-include="templates/messages.html"></div>
+               </div>
+              </label>
+
+
+              <div class="item-divider padding" style="color:#19a79a;margin-top: 10px;">Give Personal Details</div>
+              <label class="border-bottom item-input item-floating-label">
+                <span class="input-label">First name </span>
+                <input type="text" placeholder="your first name" name="firstName" ng-model="firstname" ng-required="true">
+                <div class="help-block" ng-if="complaintForm.firstName.$touched" ng-messages="complaintForm.firstName.$error">
+                 <div ng-messages-include="templates/messages.html"></div>
+                </div>
+              </label>
+
+              <label class="border-bottom item-input item-floating-label">
+                <span class="input-label">Last name </span>
+                <input type="text" placeholder="your last name" name="lastName" ng-model="lastname" ng-required="true">
+                <div class="help-block" ng-if="complaintForm.lastName.$touched"ng-messages="complaintForm.lastName.$error">
+                  <div ng-messages-include="templates/messages.html"></div>
+                </div>
+              </label>
+
+              <label class="border-bottom item-input item-floating-label">
+                <span class="input-label">Email id </span>
+                <input type="email" placeholder="your email address" name="emailid" ng-model="emailid" ng-required="true" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{3,}$/">
+                  <div class="help-block" ng-if="complaintForm.emailid.$touched" ng-messages="complaintForm.emailid.$error">
+                    <div ng-messages-include="templates/messages.html"></div>
+                  </div>
+              </label>
+
+              <div class="row padding">
+                <div class="col text-center">
+                  <button class="button card" id="submit">
+                    SUBMIT
+                  </button>
+                  <pre><p>{{complaint|json}}</p></pre>
+                </div>  <!-- col -->
+              </div> <!-- row -->
+            </form>
+          </div><!-- list -->
+        </ion-content>
+</ion-pane>

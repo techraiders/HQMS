@@ -1,0 +1,15 @@
+<ion-pane>
+  <ion-header-bar align-title="center">
+    <h1 class="title">Survey List</h1>
+  </ion-header-bar>
+
+   <ion-content class="padding">
+    <section>
+      <div ng-repeat="survey in surveys">
+        <pre>
+          <p> {{survey | json }} </p>
+        </pre>
+      </div>
+    </section>
+   </ion-content>
+</ion-pane>
