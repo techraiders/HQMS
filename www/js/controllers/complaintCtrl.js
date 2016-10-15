@@ -3,7 +3,7 @@
 
   angular.module("hospitalApp")
 
-    .controller("complaintCtrl", function($scope, $http, complaintsFactory) {
+    .controller("complaintCtrl", function($scope, $http, complaintsFactory, $state) {
 
       complaintsFactory.getCategory().then(function(response) {
         $scope.categories = response;
@@ -24,6 +24,7 @@
           complaintsFactory.saveComplaint(new_complaint).then(function(response) {
           alert("Complaint submitted");
           console.log("Complaint submitted");
+          $state.go("menu");
           })
         }
       }
