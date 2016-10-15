@@ -37,12 +37,14 @@ h1.title {
       border-right: 0px;
     }
 
-    .input-label {
+    .input-label{
         color: $header-bg-color;
         font-size: .90em;
       }
     .item-input {
-      padding-left: 0px;
+      padding: 0px;
+      /* margin-top: 5px;
+      margin-bottom: 5px; */
     }
 
     .help-block {
@@ -67,6 +69,8 @@ h1.title {
     textarea{
       resize: none;
       min-height: 130px;
+      padding-top: 8px;
+      padding-bottom: 8px;
     }
 
   }
@@ -76,5 +80,5 @@ h1.title {
   }
 
 form {
-   padding: 15px;
+  padding: 10px;
 }

@@ -17,9 +17,10 @@
           contentType: "application/json",
           url: baseUrl + "/category"
         }).success(function (response) {
+          
           deferred.resolve(response);
         }).error(function (response) {
-          console.log(response)
+          console.log("err", response)
           deferred.reject(response);
         });
 
@@ -47,16 +48,17 @@
       var saveComplaint = function (data) {
 
         var deferred = $q.defer();
-
+        console.log(data)
         $http({
           method: "POST",
           contentType: "application/json",
           data: data,
           url: baseUrl + "/complaints/"
         }).success(function (response) {
+          console.log("success", response);
           deferred.resolve(response);
         }).error(function (response) {
-          console.log(response)
+          console.log("err", response)
           deferred.reject(response);
         });
 

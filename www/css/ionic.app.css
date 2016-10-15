@@ -9845,7 +9845,9 @@ h1.title {
   font-size: .90em; }
 
 .complaintForm .item-input {
-  padding-left: 0px; }
+  padding: 0px;
+  /* margin-top: 5px;
+      margin-bottom: 5px; */ }
 
 .complaintForm .help-block {
   color: red; }
@@ -9866,10 +9868,12 @@ h1.title {
 
 .complaintForm textarea {
   resize: none;
-  min-height: 130px; }
+  min-height: 130px;
+  padding-top: 8px;
+  padding-bottom: 8px; }
 
 button span {
   margin-left: 10px; }
 
 form {
-  padding: 15px; }
+  padding: 10px; }

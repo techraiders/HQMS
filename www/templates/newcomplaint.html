@@ -24,7 +24,7 @@
                 </div>
 
               <label class="border-bottom item-input item-floating-label">
-                <span class="input-label">Title </span>
+                <span class="input-label">Title<sup>*</sup> </span>
                 <input type="text" placeholder="Title" name="complaintTitle" ng-minlength="5" ng-maxlength="45" ng-model="complaint.title" ng-required="true">
               </label>
                 <div class="help-block" ng-if="complaintForm.complaintTitle.$touched" ng-messages="complaintForm.complaintTitle.$error">
@@ -32,7 +32,7 @@
                 </div>
 
               <label class="border-bottom item-input item-floating-label">
-                <span class="input-label" style="width:100%;">Your Complaint </span>
+                <span class="input-label" style="width:100%;margin-top:16px;" >Your Complaint <sup>*</sup> </span>
                 <textarea name="complaintDescription" rows="5" placeholder="Your complaint" ng-model="complaint.description" ng-minlength="10" ng-maxlength="1000" ng-required="true"></textarea>
               </label>
                 <div class="help-block" ng-if="complaintForm.complaintDescription.$touched" ng-messages="complaintForm.complaintDescription.$error">
@@ -64,8 +64,8 @@
 
               <label class="border-bottom item-input item-floating-label" style="margin-left:10px;">
                 <span class="input-label">Email address </span>
-                <input type="email" placeholder="Email address (optional)" name="email" ng-model="complaint.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{3,}$/">
-                  <div class="help-block" ng-if="complaintForm.email.$touched" ng-messages="complaintForm.email.$error">
+                <input type="email" placeholder="Email address (optional)" name="emailId" ng-model="complaint.emailId" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{3,}$/">
+                  <div class="help-block" ng-if="complaintForm.emailId.$touched" ng-messages="complaintForm.emailId.$error">
                     <div ng-messages-include="templates/messages.html"></div>
                   </div>
               </label>
@@ -75,7 +75,6 @@
                   <button class="button card" type="submit" id="submit" ng-click="saveComplaint(complaint)">
                     SUBMIT
                   </button>
-                  <pre><p>{{complaint|json}}</p></pre>
                 </div>  <!-- col -->
               </div> <!-- row -->
             </form>
