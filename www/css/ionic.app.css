@@ -9834,8 +9834,11 @@ h1.title {
   border-radius: 0px;
   margin-top: 25px; }
 
-.complaintForm label {
-  border-bottom: 1px solid #d3d3d3; }
+.complaintForm label, .complaintForm select {
+  border-bottom: 1px solid #d3d3d3;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px; }
 
 .complaintForm .input-label {
   color: #a52a2a;
@@ -9857,6 +9860,10 @@ h1.title {
   margin-bottom: 10px;
   background-color: #a52a2a;
   color: #ffffff; }
+
+.complaintForm textarea {
+  resize: none;
+  min-height: 130px; }
 
 button span {
   margin-left: 10px; }

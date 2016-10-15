@@ -30,8 +30,11 @@ h1.title {
 }
 
   .complaintForm {
-    label  {
+    label, select  {
       border-bottom: 1px solid #d3d3d3;
+      border-top: 0px;
+      border-left: 0px;
+      border-right: 0px;
     }
 
     .input-label {
@@ -56,6 +59,11 @@ h1.title {
       margin-bottom: 10px;
       background-color: $header-bg-color;
       color: $header-text-color;
+    }
+
+    textarea{
+      resize: none;
+      min-height: 130px;
     }
 
   }
