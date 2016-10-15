@@ -24,6 +24,7 @@
           complaintsFactory.saveComplaint(new_complaint).then(function(response) {
           alert("Complaint submitted");
           console.log("Complaint submitted");
+          $scope.complaint = {};
           $state.go("menu");
           })
         }
