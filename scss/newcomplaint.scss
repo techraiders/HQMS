@@ -7,10 +7,12 @@ body {
 
 h1.title {
     color: $header-text-color;
+    text-align: center;
 }
 
 .bar-header {
   background: $header-bg-color;
+  text-align: center;
 }
 
 .myBtn {

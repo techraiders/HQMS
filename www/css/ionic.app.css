@@ -9820,10 +9820,12 @@ body {
   color: #000; }
 
 h1.title {
-  color: #ffffff; }
+  color: #ffffff;
+  text-align: center; }
 
 .bar-header {
-  background: #a52a2a; }
+  background: #a52a2a;
+  text-align: center; }
 
 .myBtn, #menuBtn button, #submit {
   background-color: #a52a2a;
