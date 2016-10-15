@@ -5,7 +5,7 @@
 
         <ion-content class="padding">
           <div class="list" id="newcomplaint">
-            <form name="complaintForm" class="complaintForm" novalidate ng-submit="saveComplaint(complaint)">
+            <form name="complaintForm" class="complaintForm" novalidate>
 
               <select name="complaintCategory" ng-options="category.id as category.name for category in categories track by category.id" ng-model="complaint.categoryId" ng-required="true"  style="width:100%;">
                   <option value="" style="display:none">-- Select Category --</option>
@@ -41,7 +41,7 @@
 
 
               <div class="item-divider padding">Give Personal Details</div>
-              <div class="row">
+              <div class="row responsive-sm">
                 <div class="col">
                   <label class="border-bottom item-input item-floating-label">
                   <span class="input-label">First name </span>
@@ -62,17 +62,17 @@
                 </div>
               </div>
 
-              <label class="border-bottom item-input item-floating-label">
+              <label class="border-bottom item-input item-floating-label" style="margin-left:10px;">
                 <span class="input-label">Email address </span>
-                <input type="email" placeholder="Email address (optional)" name="emailid" ng-model="complaint.emailid" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{3,}$/">
-                  <div class="help-block" ng-if="complaintForm.emailid.$touched" ng-messages="complaintForm.emailid.$error">
+                <input type="email" placeholder="Email address (optional)" name="email" ng-model="complaint.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{3,}$/">
+                  <div class="help-block" ng-if="complaintForm.email.$touched" ng-messages="complaintForm.email.$error">
                     <div ng-messages-include="templates/messages.html"></div>
                   </div>
               </label>
 
               <div class="row padding">
                 <div class="col text-center">
-                  <button class="button card" id="submit">
+                  <button class="button card" type="submit" id="submit" ng-click="saveComplaint(complaint)">
                     SUBMIT
                   </button>
                   <pre><p>{{complaint|json}}</p></pre>

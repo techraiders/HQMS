@@ -4,7 +4,6 @@
   angular.module("hospitalApp")
 
     .controller("complaintCtrl", function($scope, $http, complaintsFactory, $state) {
-
       complaintsFactory.getCategory().then(function(response) {
         $scope.categories = response;
       });
