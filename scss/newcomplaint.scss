@@ -32,18 +32,19 @@ h1.title {
   .complaintForm {
     label  {
       border-bottom: 1px solid #d3d3d3;
-      .input-label {
-        color: blue;
+    }
+
+    .input-label {
+        color: $header-bg-color;
         font-size: .90em;
       }
-    } 
 
     .help-block {
       color:red;
     }
 
     select {
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       height: 30px;
     }
     .item-divider {
@@ -53,8 +54,16 @@ h1.title {
       padding-bottom: 5px;
       margin-top: 10px;
       margin-bottom: 10px;
-      color: $header-bg-color;
+      background-color: $header-bg-color;
+      color: $header-text-color;
     }
 
   }
 
+  button  span {
+    margin-left: 10px;
+  }
+
+form {
+   padding: 15px;
+}

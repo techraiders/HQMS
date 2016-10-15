@@ -9836,15 +9836,16 @@ h1.title {
 
 .complaintForm label {
   border-bottom: 1px solid #d3d3d3; }
-  .complaintForm label .input-label {
-    color: blue;
-    font-size: .90em; }
+
+.complaintForm .input-label {
+  color: #a52a2a;
+  font-size: .90em; }
 
 .complaintForm .help-block {
   color: red; }
 
 .complaintForm select {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   height: 30px; }
 
 .complaintForm .item-divider {
@@ -9854,4 +9855,11 @@ h1.title {
   padding-bottom: 5px;
   margin-top: 10px;
   margin-bottom: 10px;
-  color: #a52a2a; }
+  background-color: #a52a2a;
+  color: #ffffff; }
+
+button span {
+  margin-left: 10px; }
+
+form {
+  padding: 15px; }

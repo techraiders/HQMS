@@ -7,7 +7,7 @@
           <div class="list" id="newcomplaint">
             <form name="complaintForm" class="complaintForm" novalidate ng-submit="saveComplaint(complaint)">
 
-              <span>Category</span>
+              <span class="input-label">Category</span>
                 <select name="complaintCategory" ng-options="category.id as category.name for category in categories track by category.id" ng-model="complaint.categoryId" ng-required="true"  style="width:100%;">
                   <option value="" style="display:none">-- choose a Category --</option>
                 </select>
@@ -16,7 +16,7 @@
                 </div>
 
                 <div ng-if="complaint.categoryId">
-                  <span>Sub-category</span>
+                  <span class="input-label">Sub-category</span>
                   <select name="complaintCategory" ng-options="subCategory.id as subCategory.name for subCategory in subCategories track by subCategory.id" ng-model="complaint.subCategoryId" ng-required="true" style="width:100%;">
                    <option value="" style="display:none">-- choose a subcategory --</option>
                   </select>
