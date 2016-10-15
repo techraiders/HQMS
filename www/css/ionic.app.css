@@ -9828,11 +9828,15 @@ h1.title {
 .myBtn, #menuBtn button, #submit {
   background-color: #a52a2a;
   color: #ffffff;
-  min-width: 150px; }
+  min-width: 150px;
+  min-height: 50px; }
 
 #submit {
   border-radius: 0px;
   margin-top: 30px; }
+
+.complaintForm input.ng-invalid.ng-touched, .complaintForm select.ng-invalid.ng-touched, .complaintForm textarea.ng-invalid.ng-touched {
+  border-bottom: 1px solid #DA3637; }
 
 .complaintForm label, .complaintForm select {
   border-bottom: 1px solid #d3d3d3;
@@ -9841,8 +9845,9 @@ h1.title {
   border-right: 0px; }
 
 .complaintForm .input-label {
-  color: #a52a2a;
-  font-size: .90em; }
+  color: blue;
+  font-size: .90em;
+  font-weight: bold; }
 
 .complaintForm .item-input {
   padding: 0px;
@@ -9850,7 +9855,8 @@ h1.title {
       margin-bottom: 5px; */ }
 
 .complaintForm .help-block {
-  color: red; }
+  color: red;
+  font-size: .80em; }
 
 .complaintForm select {
   margin-bottom: 20px;
@@ -9862,9 +9868,7 @@ h1.title {
   padding-top: 5px;
   padding-bottom: 5px;
   margin-top: 10px;
-  margin-bottom: 10px;
-  background-color: #a52a2a;
-  color: #ffffff; }
+  margin-bottom: 10px; }
 
 .complaintForm textarea {
   resize: none;
