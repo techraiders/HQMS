@@ -7,16 +7,18 @@
           <div class="list" id="newcomplaint">
             <form name="complaintForm" class="complaintForm" novalidate ng-submit="saveComplaint(complaint)">
 
-                <h5>Category</h5>
+              <span>Category</span>
                 <select name="complaintCategory" ng-options="category.id as category.name for category in categories track by category.id" ng-model="complaint.categoryId" ng-required="true"  style="width:100%;">
+                  <option value="" style="display:none">-- choose a Category --</option>
                 </select>
                 <div class="help-block" ng-if="complaintForm.complaintCategory.$touched" ng-messages="complaintForm.category.$error">
                   <div ng-messages-include="templates/messages.html"></div>
                 </div>
 
                 <div ng-if="complaint.categoryId">
-                  <p>Sub-category</p>
-                  <select name="complaintCategory" ng-options="category.id as category.name for category in categories track by category.id" ng-model="complaint.categoryId" ng-required="true" style="width:100%;">
+                  <span>Sub-category</span>
+                  <select name="complaintCategory" ng-options="subCategory.id as subCategory.name for subCategory in subCategories track by subCategory.id" ng-model="complaint.subCategoryId" ng-required="true" style="width:100%;">
+                   <option value="" style="display:none">-- choose a subcategory --</option>
                   </select>
                   <div class="help-block" ng-if="complaintForm.complaintCategory.$touched" ng-messages="complaintForm.category.$error">
                     <div ng-messages-include="templates/messages.html"></div>
@@ -40,10 +42,10 @@
               </label>
 
 
-              <div class="item-divider padding" style="color:#19a79a;margin-top: 10px;">Give Personal Details</div>
+              <div class="item-divider padding">Give Personal Details</div>
               <label class="border-bottom item-input item-floating-label">
                 <span class="input-label">First name </span>
-                <input type="text" placeholder="your first name" name="firstName" ng-model="firstname" ng-required="true">
+                <input type="text" placeholder="your first name" name="firstName" ng-model="firstname">
                 <div class="help-block" ng-if="complaintForm.firstName.$touched" ng-messages="complaintForm.firstName.$error">
                  <div ng-messages-include="templates/messages.html"></div>
                 </div>
@@ -51,7 +53,7 @@
 
               <label class="border-bottom item-input item-floating-label">
                 <span class="input-label">Last name </span>
-                <input type="text" placeholder="your last name" name="lastName" ng-model="lastname" ng-required="true">
+                <input type="text" placeholder="your last name" name="lastName" ng-model="lastname">
                 <div class="help-block" ng-if="complaintForm.lastName.$touched"ng-messages="complaintForm.lastName.$error">
                   <div ng-messages-include="templates/messages.html"></div>
                 </div>
@@ -59,7 +61,7 @@
 
               <label class="border-bottom item-input item-floating-label">
                 <span class="input-label">Email id </span>
-                <input type="email" placeholder="your email address" name="emailid" ng-model="emailid" ng-required="true" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{3,}$/">
+                <input type="email" placeholder="your email address" name="emailid" ng-model="emailid" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{3,}$/">
                   <div class="help-block" ng-if="complaintForm.emailid.$touched" ng-messages="complaintForm.emailid.$error">
                     <div ng-messages-include="templates/messages.html"></div>
                   </div>
