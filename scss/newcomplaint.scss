@@ -1,35 +1,7 @@
-@import "variables";
+@import "base";
 
-body {
-  font-family: sans-serif;
-  color: #000;
-}
-
-h1.title {
-    color: $header-text-color;
-    text-align: center;
-}
-
-.bar-header {
-  background: $header-bg-color;
-  text-align: center;
-}
-
-.myBtn {
-  background-color: $button-bg-color;
-  color: $button-text-color;
-  min-width: 150px;
-  min-height: 50px;
-}
-
-#menuBtn  button,  {
-  @extend .myBtn;
-}
-
-#submit {
-  @extend .myBtn;
-   border-radius: 0px;
-   margin-top: 30px;
+form {
+  padding: 10px;
 }
 
   .complaintForm {
@@ -50,8 +22,6 @@ h1.title {
       }
     .item-input {
       padding: 0px;
-      /* margin-top: 5px;
-      margin-bottom: 5px; */
     }
 
     .help-block {
@@ -75,16 +45,11 @@ h1.title {
     textarea{
       resize: none;
       min-height: 130px;
-      padding-top: 8px;
-      padding-bottom: 8px;
     }
 
+    button {
+      @extend .myBtn;
+      border-radius: 0px;
+      margin-top: 30px;
+    }
   }
-
-  button  span {
-    margin-left: 10px;
-  }
-
-form {
-  padding: 10px;
-}
