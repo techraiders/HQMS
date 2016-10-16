@@ -6,19 +6,29 @@
       <h1 class="title">YUGMA</h1>
     </header>
 
-    <button class="button button-block">
-      <span class="ion-ios-list-outline"></span> Survey 
-    </button>
-    <button class="button button-block" ui-sref="newcomplaint">
-      <span class="ion-thumbsdown"></span> Complaint 
-    </button>
-    <button class="button button-block">
-      <span class="ion-chatbubble"></span> Suggestion 
-    </button>
-    <button class="button button-block">
-      <span class="ion-thumbsup"></span> Appreciation 
-    </button>
-<!-- 
-    <button class="button" ui-sref="surveylist">View survey list</button> -->
-   </ion-content>
+    <div class="row responsive-sm" style="margin-top:25%;">
+      <div class="col">
+        <button class="button button-block">
+          <span class="ion-ios-list-outline"></span> Survey 
+        </button>
+      </div><!-- col -->
+      <div class="col">
+       <button class="button button-block" ui-sref="newcomplaint">
+          <span class="ion-thumbsdown"></span> Complaint 
+        </button>
+      </div><!-- col -->
+    </div><!-- row -->
+    <div class="row responsive-sm">
+      <div class="col">
+        <button class="button button-block">
+          <span class="ion-chatbubble"></span> Suggestion 
+        </button>        
+      </div><!-- col -->
+      <div class="col">
+        <button class="button button-block">
+          <span class="ion-thumbsup"></span> Appreciation 
+        </button>
+      </div><!-- col -->
+    </div><!-- row -->
+  </ion-content>
 </ion-pane>
