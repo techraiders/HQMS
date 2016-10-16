@@ -2,5 +2,7 @@
 
 #menuBtn  button {
   @extend .myBtn;
+  height: 150px;
+  box-shadow: 0 16px 18px 0 rgba(0,0,0,0.2), 0 16px 18px 0 rgba(0,0,0,0.19);
+  font-size: 29px;
 }
-

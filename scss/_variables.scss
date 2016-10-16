@@ -1,8 +1,8 @@
 // === COLORS ====
 $text-white: #ffffff;
 
-$header-text-color: black;
-$header-bg-color:#a52a2a; //brown
+$header-text-color: $text-white;
+$header-bg-color: #f44336!important; //brown
 
 $button-text-color: $text-white;
-$button-bg-color: #a52a2a;
+$button-bg-color: #f44336!important;
