@@ -19,6 +19,7 @@
       ];
     
       $scope.saveComplaint = function (new_complaint) {
+        $scope.submitted = true;
         if (new_complaint) {
           complaintsFactory.saveComplaint(new_complaint).then(function(response) {
           alert("Complaint submitted");

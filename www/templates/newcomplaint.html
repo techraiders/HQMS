@@ -10,7 +10,7 @@
               <select name="complaintCategory" ng-options="category.id as category.name for category in categories track by category.id" ng-model="complaint.categoryId" ng-required="true"  style="width:100%;">
                   <option value="" style="display:none">-- Select Category --</option>
                 </select>
-                <div class="help-block" ng-if="complaintForm.complaintCategory.$touched" ng-messages="complaintForm.complaintCategory.$error">
+                <div class="help-block" ng-if="submitted || complaintForm.complaintCategory.$touched" ng-messages="complaintForm.complaintCategory.$error">
                   <div ng-messages-include="templates/messages.html"></div>
                 </div>
 
@@ -18,7 +18,7 @@
                   <select name="complaintSubCategory" ng-options="subCategory.id as subCategory.name for subCategory in subCategories track by subCategory.id" ng-model="complaint.subCategoryId" ng-required="true" style="width:100%;">
                    <option value="" style="display:none">-- Select Subcategory --</option>
                   </select>
-                  <div class="help-block" ng-if="complaintForm.complaintSubCategory.$touched" ng-messages="complaintForm.complaintSubCategory.$error">
+                  <div class="help-block" ng-if="submitted || complaintForm.complaintSubCategory.$touched" ng-messages="complaintForm.complaintSubCategory.$error">
                     <div ng-messages-include="templates/messages.html"></div>
                   </div>
                 </div>
@@ -27,7 +27,7 @@
                 <span class="input-label">Title<sup>*</sup> </span>
                 <input type="text" placeholder="Title" name="complaintTitle" ng-minlength="5" ng-maxlength="45" ng-model="complaint.title" ng-required="true">
               </label>
-                <div class="help-block" ng-if="complaintForm.complaintTitle.$touched" ng-messages="complaintForm.complaintTitle.$error">
+                <div class="help-block" ng-if="submitted || complaintForm.complaintTitle.$touched" ng-messages="complaintForm.complaintTitle.$error">
                   <div ng-messages-include="templates/messages.html"></div>
                 </div>
 
@@ -35,7 +35,7 @@
                 <span class="input-label" style="width:100%;margin-top:16px;" >Your Complaint <sup>*</sup> </span>
                 <textarea name="complaintDescription" rows="5" placeholder="Your complaint" ng-model="complaint.description" ng-minlength="10" ng-maxlength="1000" ng-required="true"></textarea>
               </label>
-                <div class="help-block" ng-if="complaintForm.complaintDescription.$touched" ng-messages="complaintForm.complaintDescription.$error">
+                <div class="help-block" ng-if="submitted || complaintForm.complaintDescription.$touched" ng-messages="complaintForm.complaintDescription.$error">
                   <div ng-messages-include="templates/messages.html"></div>
                </div>
 
