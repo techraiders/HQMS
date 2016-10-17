@@ -16,12 +16,12 @@ angular.module('hospitalApp', ['ionic', 'ui.router', 'ngMessages'])
       .state('newcomplaint', {
         url: '/new-complaint',
         templateUrl: 'templates/newcomplaint.html',
-        controller: "complaintCtrl"
+        controller: "complaintController as complaintCtrl"
       })
       .state('surveylist', {
         url: '/survey-list',
         templateUrl: 'templates/surveylist.html',
-        controller: 'surveyCtrl'
+        controller: 'surveyController as surveyCtrl'
       })
     $urlRouterProvider.otherwise('menu');
   })

@@ -27,23 +27,23 @@
         return deferred.promise;
       }
 
-      /*var subCategory = function () {
+      var getSubCategory = function () {
 
         var deferred = $q.defer();
 
         $http({
           method: "GET",
           contentType: "application/json",
-          url: baseUrl + "/subcategory/"
+          url: baseUrl + "/subcategory"
         }).success(function (response) {
           deferred.resolve(response);
         }).error(function (response) {
-          console.log(response)
+          console.log("err", response)
           deferred.reject(response);
         });
 
         return deferred.promise;
-      }*/
+      }
 
       var saveComplaint = function (data) {
 
@@ -53,7 +53,7 @@
           method: "POST",
           contentType: "application/json",
           data: data,
-          url: baseUrl + "/complaints/"
+          url: baseUrl + "/complaints"
         }).success(function (response) {
           console.log("success", response);
           deferred.resolve(response);
@@ -65,10 +65,9 @@
         return deferred.promise;
       }
 
-
-
       return {
         getCategory: getCategory,
+        getSubCategory: getSubCategory,
         saveComplaint: saveComplaint
       }
 

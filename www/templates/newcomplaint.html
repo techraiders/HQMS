@@ -7,16 +7,16 @@
           <div class="list" id="newcomplaint">
             <form name="complaintForm" class="complaintForm" novalidate>
 
-              <select name="complaintCategory" ng-options="category.id as category.name for category in categories track by category.id" ng-model="complaint.categoryId" ng-required="true"  style="width:100%;">
-                  <option value="" style="display:none">-- Select Category --</option>
+              <select name="complaintCategory" ng-options="category.id as category.name for category in complaintCtrl.categories track by category.id" ng-model="complaint.categoryId" ng-required="true">
+                  <option value="" style="display:none">Select Category</option>
                 </select>
                 <div class="help-block" ng-if="submitted || complaintForm.complaintCategory.$touched" ng-messages="complaintForm.complaintCategory.$error">
                   <div ng-messages-include="templates/messages.html"></div>
                 </div>
 
                 <div ng-if="complaint.categoryId">
-                  <select name="complaintSubCategory" ng-options="subCategory.id as subCategory.name for subCategory in subCategories track by subCategory.id" ng-model="complaint.subCategoryId" ng-required="true" style="width:100%;">
-                   <option value="" style="display:none">-- Select Subcategory --</option>
+                  <select name="complaintSubCategory" ng-options="subCategory.id as subCategory.sname for subCategory in complaintCtrl.subCategories track by subCategory.id" ng-model="complaint.subCategoryId" ng-required="true">
+                   <option value="" style="display:none">Select Subcategory</option>
                   </select>
                   <div class="help-block" ng-if="submitted || complaintForm.complaintSubCategory.$touched" ng-messages="complaintForm.complaintSubCategory.$error">
                     <div ng-messages-include="templates/messages.html"></div>
@@ -77,6 +77,7 @@
                   </button>
                 </div>  <!-- col -->
               </div> <!-- row -->
+              <pre>{{complaint | json }}</pre>
             </form>
           </div><!-- list -->
         </ion-content>
