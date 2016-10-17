@@ -6,19 +6,7 @@ body {
   color: #000;
 }
 
-h1.title {
-    color: $header-text-color;
-    text-align: center;
-}
-
-.bar-header {
-  background: $header-bg-color;
-  text-align: center;
-}
-
 .myBtn {
-  background-color: $button-bg-color;
-  color: $button-text-color;
   min-width: 150px;
   min-height: 50px;
   @include border-radius(0px);
