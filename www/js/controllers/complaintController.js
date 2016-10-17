@@ -11,7 +11,6 @@
 
       complaintsFactory.getSubCategory().then(function(response) {
         vm.subCategories = response;
-        console.log(vm.subCategories);
       });
     
       vm.saveComplaint = function (new_complaint) {

@@ -6,7 +6,9 @@
 angular.module('hospitalApp', ['ionic', 'ui.router', 'ngMessages'])
 
 
-.config(function($stateProvider, $urlRouterProvider){
+.config(function($stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider){
+
+    $urlMatcherFactoryProvider.caseInsensitive(true);
 
     $stateProvider
       .state('menu', {
@@ -16,12 +18,14 @@ angular.module('hospitalApp', ['ionic', 'ui.router', 'ngMessages'])
       .state('newcomplaint', {
         url: '/new-complaint',
         templateUrl: 'templates/newcomplaint.html',
-        controller: "complaintController as complaintCtrl"
+        controller: "complaintController",
+        controllerAs: "complaintCtrl"
       })
       .state('surveylist', {
         url: '/survey-list',
         templateUrl: 'templates/surveylist.html',
-        controller: 'surveyController as surveyCtrl'
+        controller: 'surveyController',
+        controllerAs: "surveyCtrl"
       })
     $urlRouterProvider.otherwise('menu');
   })
