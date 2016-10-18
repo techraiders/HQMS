@@ -24,10 +24,12 @@
                   </div><!-- subcategory -->
 
                 <label class="border-bottom item-floating-label">
-                  <span class="input-label">Title<sup>*</sup> </span>
+                  <span class="input-label" id="complaintTitle">Title<sup>*</sup> </span>
                   <input type="text" placeholder="Title" name="complaintTitle" ng-minlength="5" ng-maxlength="45" ng-model="complaint.title" ng-required="true">
                 </label>
-                  <div class="help-block" ng-if="submitted || complaintForm.complaintTitle.$touched" ng-messages="complaintForm.complaintTitle.$error">
+                  <div class="help-block" ng-if="submitted || complaintForm.complaintTitle.$touched" ng-messages="complaintForm.complaintTitle.$error" role="alert">
+                    <span ng-message="minlength">Complaint title can't be less than 5 characters long.</span>
+                    <span ng-message="maxlength">Complaint title can't be more than 45 character long.</span>
                     <div ng-messages-include="templates/messages.html"></div>
                   </div>
 
@@ -35,8 +37,10 @@
                   <span class="input-label">Your Complaint <sup>*</sup> </span>
                   <textarea name="complaintDescription" rows="5" placeholder="Your complaint" ng-model="complaint.description" ng-minlength="10" ng-maxlength="1000" ng-required="true"></textarea>
                 </label>
-                  <div class="help-block" ng-if="submitted || complaintForm.complaintDescription.$touched" ng-messages="complaintForm.complaintDescription.$error">
-                    <div ng-messages-include="templates/messages.html"></div>
+                  <div class="help-block" ng-if="submitted || complaintForm.complaintDescription.$touched" ng-messages="complaintForm.complaintDescription.$error" role="alert">
+                    <div ng-message="required">*This field is required.</div>
+                    <div ng-message="minlength">Complaint must be at least 10 characters long.</div>
+                    <div ng-message="maxlength">Complaint can't be more than 1000 character.</div>
                   </div>
 
               <div class="item-divider padding">Give Personal Details</div>
