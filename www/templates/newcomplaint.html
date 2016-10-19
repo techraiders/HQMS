@@ -5,30 +5,28 @@
 
         <ion-content class="padding">
           <div id="newcomplaint">
-            <form name="complaintForm" class="complaintForm" novalidate>
+            <form name="complaintForm" class="complaintForm" novalidate ng-submit="complaintForm.$valid && complaintCtrl.saveComplaint(complaint)">
               <div class="list">
                 <select name="complaintCategory" ng-options="category.id as category.name for category in complaintCtrl.categories track by category.id" ng-model="complaint.categoryId" ng-required="true">
                   <option value="" style="display:none">Select Category</option>
                 </select>
 
-                  <div class="help-block" ng-if="complaintCtrl.submitted || complaintForm.complaintCategory.$touched" ng-messages="complaintForm.complaintCategory.$error">
+                  <div class="help-block" ng-if="submitted || complaintForm.complaintCategory.$touched" ng-messages="complaintForm.complaintCategory.$error">
                     <div ng-messages-include="templates/messages.html"></div>
                   </div><!-- help block -->
 
-                <div ng-if="complaint.categoryId">
-                  <select id="subCategory" name="complaintSubCategory" ng-options="subCategory.id as subCategory.sname for subCategory in complaintCtrl.subCategories | filter : complaint.categoryId track by subCategory.id" ng-model="complaint.subcatId" ng-required="true">
+                  <select ng-if="complaint.categoryId" id="subCategory" name="complaintSubCategory" ng-options="subCategory.id as subCategory.sname for subCategory in complaintCtrl.subCategories | filter : complaint.categoryId track by subCategory.id" ng-model="complaint.subcatId" ng-required="true">
                    <option value="" style="display:none">Select subcategory</option>
                   </select>
-                    <div class="help-block" ng-if="complaintCtrl.submitted || complaintForm.complaintSubCategory.$touched" ng-messages="complaintForm.complaintSubCategory.$error">
+                    <div class="help-block" ng-if="submitted || complaintForm.complaintSubCategory.$touched" ng-messages="complaintForm.complaintSubCategory.$error">
                       <div ng-messages-include="templates/messages.html"></div>
                     </div><!-- help block -->
-                  </div><!-- subcategory -->
 
                 <label class="border-bottom item-floating-label">
                   <span class="input-label" id="complaintTitle">Title<sup>*</sup> </span>
                   <input type="text" placeholder="Title" name="complaintTitle" ng-minlength="5" ng-maxlength="45" ng-model="complaint.title" ng-required="true">
                 </label>
-                  <div class="help-block" ng-if="complaintCtrl.submitted || complaintForm.complaintTitle.$touched" ng-messages="complaintForm.complaintTitle.$error" role="alert">
+                  <div class="help-block" ng-if="submitted || complaintForm.complaintTitle.$touched" ng-messages="complaintForm.complaintTitle.$error" role="alert">
                     <span ng-message="minlength">Complaint title can't be less than 5 characters long.</span>
                     <span ng-message="maxlength">Complaint title can't be more than 45 character long.</span>
                     <div ng-messages-include="templates/messages.html"></div>
@@ -38,7 +36,7 @@
                   <span class="input-label">Your Complaint <sup>*</sup> </span>
                   <textarea name="complaintDescription" rows="5" placeholder="Your complaint" ng-model="complaint.description" ng-minlength="10" ng-maxlength="1000" ng-required="true"></textarea>
                 </label>
-                  <div class="help-block" ng-if="complaintCtrl.submitted || complaintForm.complaintDescription.$touched" ng-messages="complaintForm.complaintDescription.$error" role="alert">
+                  <div class="help-block" ng-if="submitted || complaintForm.complaintDescription.$touched" ng-messages="complaintForm.complaintDescription.$error" role="alert">
                     <div ng-message="required">*This field is required.</div>
                     <div ng-message="minlength">Complaint must be at least 10 characters long.</div>
                     <div ng-message="maxlength">Complaint can't be more than 1000 character.</div>
@@ -48,20 +46,14 @@
               <div class="row responsive-sm">
                 <div class="col">
                   <label class="border-bottom item-floating-label">
-                  <span class="input-label">First name </span>
-                  <input type="text" placeholder="First name (optional)" name="firstName" ng-model="complaint.firstname">
-                  <div class="help-block" ng-if="complaintCtrl.submitted || complaintForm.firstName.$touched" ng-messages="complaintForm.firstName.$error">
-                   <div ng-messages-include="templates/messages.html"></div>
-                  </div>
-                </label>
+                    <span class="input-label">First name </span>
+                    <input type="text" placeholder="First name (optional)" name="firstName" ng-model="complaint.firstname">
+                  </label>
                 </div>
                 <div class="col">
                   <label class="border-bottom item-floating-label">
                   <span class="input-label">Last name </span>
                   <input type="text" placeholder="Last name (optional)" name="lastName" ng-model="complaint.lastname">
-                  <div class="help-block" ng-if="complaintCtrl.submitted || complaintForm.lastName.$touched"ng-messages="complaintForm.lastName.$error">
-                    <div ng-messages-include="templates/messages.html"></div>
-                  </div>
                 </label>
                 </div>
               </div>
@@ -76,7 +68,7 @@
              </div><!-- list -->
               <div class="row padding">
                 <div class="col text-center">
-                  <button class="button card button-royal" type="submit" id="submit" ng-click="complaintCtrl.saveComplaint(complaint)">
+                  <button class="button card button-royal" type="submit" id="submit" ng-click="submitted=true">
                     SUBMIT
                   </button>
                 </div>  <!-- col -->

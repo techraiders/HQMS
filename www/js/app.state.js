@@ -18,6 +18,10 @@
           templateUrl: 'templates/surveylist.html',
           controller: 'surveyController as surveyCtrl'
         })
+        .state('thankyou', {
+          url: '/thank-you',
+          templateUrl: 'templates/thankyou.html'
+        })
       $urlRouterProvider.otherwise('menu');
     });
 })();
