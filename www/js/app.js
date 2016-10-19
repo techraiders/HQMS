@@ -4,30 +4,6 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 angular.module('hospitalApp', ['ionic', 'ui.router', 'ngMessages'])
-
-
-.config(function($stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider){
-
-    $urlMatcherFactoryProvider.caseInsensitive(true);
-
-    $stateProvider
-      .state('menu', {
-        url: '/menu',
-        templateUrl: 'templates/menu.html'
-      })
-      .state('newcomplaint', {
-        url: '/new-complaint',
-        templateUrl: 'templates/newcomplaint.html',
-        controller: "complaintController as complaintCtrl"
-      })
-      .state('surveylist', {
-        url: '/survey-list',
-        templateUrl: 'templates/surveylist.html',
-        controller: 'surveyController as surveyCtrl'
-      })
-    $urlRouterProvider.otherwise('menu');
-  })
-
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
