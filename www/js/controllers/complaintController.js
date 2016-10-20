@@ -3,7 +3,7 @@
 
   angular.module("hospitalApp")
 
-    .controller("complaintController", function($http, complaintsFactory, $state, $rootScope ) {
+    .controller("complaintController", function($http, complaintsFactory, $state, $rootScope, ionicToast) {
       var vm = this;
       complaintsFactory.getCategory().then(function(response) {
         vm.categories = response;
@@ -13,14 +13,14 @@
         vm.subCategories = response;
       });
  
-     vm.Confirm = function () {
-      vm.x = confirm("Are you sure you")
-        console.log(vm.x);
-      }
+    function showToast(x, position, stick, disappearDelay){
+      ionicToast.show(msg, position, stick, disappearDelay);
+    }
 
       function newComplaint(new_complaint) {
         complaintsFactory.saveComplaint(new_complaint).then(function(response) {
           vm.complaint = {};
+          showToast("Your complaint was successfully posted", "top", false, 3000);
           $state.go("thankyou");
         });
       }
@@ -34,7 +34,7 @@
             newComplaint(new_complaint);
           }
         }
-      }
+      };
   });
 
 })();
