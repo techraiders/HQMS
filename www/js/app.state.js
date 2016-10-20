@@ -13,9 +13,9 @@
           templateUrl: 'templates/newcomplaint.html',
           controller: "complaintController as complaintCtrl"
         })
-        .state('surveylist', {
-          url: '/survey-list',
-          templateUrl: 'templates/surveylist.html',
+        .state('survey', {
+          url: '/survey',
+          templateUrl: 'templates/survey.html',
           controller: 'surveyController as surveyCtrl'
         })
         .state('thankyou', {

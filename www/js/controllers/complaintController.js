@@ -3,7 +3,7 @@
 
   angular.module("hospitalApp")
 
-    .controller("complaintController", function($http, complaintsFactory, $state, $rootScope, ionicToast) {
+    .controller("complaintController", function($http, complaintsFactory, $state, $rootScope, ionicToast, ionicSuperPopup) {
       var vm = this;
       complaintsFactory.getCategory().then(function(response) {
         vm.categories = response;
@@ -35,6 +35,27 @@
           }
         }
       };
+
+
+        vm.popup5 = function () {
+            ionicSuperPopup.show({
+              title: "Are you sure?",
+              text: "This will do something again!",
+               type: "warning",
+               showCancelButton: true,
+               confirmButtonColor: "#DD6B55",confirmButtonText: "Yes, do that thing!",
+               cancelButtonText: "No, don't!",
+               closeOnConfirm: false,
+               closeOnCancel: false },
+            function(isConfirm) {
+               if (isConfirm) {
+                  ionicSuperPopup.show("You did it!", "You totally just did something!", "success");
+               } else {
+                  ionicSuperPopup.show("Cancelled", "Pew, you totally didn't do anything!", "error");
+               }
+            });
+          };
+
   });
 
 })();
