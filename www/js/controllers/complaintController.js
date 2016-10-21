@@ -13,27 +13,25 @@
         vm.subCategories = response;
       });
  
-    function showToast(x, position, stick, disappearDelay){
+    function showToast(msg, position, stick, disappearDelay){
       ionicToast.show(msg, position, stick, disappearDelay);
     }
 
       function newComplaint(new_complaint) {
         complaintsFactory.saveComplaint(new_complaint).then(function(response) {
+          console.log("the response is: ", response);
+          vm.complaintID = response.complaintID;
+
           vm.complaint = undefined;
-          showToast("Your complaint was successfully posted", "top", false, 3000);
-          $state.go("thankyou");
+          popup3a();
         });
       }
 
       function ifValidEmail (new_complaint) {
         if (angular.isString(new_complaint.emailId) && new_complaint.emailId) {
-          vm.isEmail = true;
-          return vm.isEmail;
+          vm.isValid = true;
+          return vm.isValid;
         }
-      }
-
-      vm.print = function(new_complaint) {
-        console.log(ifValidEmail(new_complaint));
       }
 
       vm.saveComplaint = function(new_complaint) {
@@ -50,23 +48,27 @@
 
         function popup5(new_complaint) {
             ionicSuperPopup.show({
-              title: "Are you sure?",
-              text: "This will do something again!",
+              title: "Are you sure to submit without email?",
+              text: "can't track without email",
                type: "warning",
                showCancelButton: true,
-               confirmButtonColor: "#DD6B55",confirmButtonText: "Yes, do that thing!",
-               cancelButtonText: "No, don't!",
+               confirmButtonColor: "#DD6B55",confirmButtonText: "Yes, Just submit!",
+               cancelButtonText: "No, I'll give email",
                closeOnConfirm: true,
-               closeOnCancel: false },
+               closeOnCancel: true },
             function(isConfirm) {
                if (isConfirm) {
                   //ionicSuperPopup.show("You did it!", "You totally just did something!", "success");
                   newComplaint(new_complaint);
                   console.log("you opted not to give email");
                } else {
-                  ionicSuperPopup.show("Cancelled", "Pew, you totally didn't do anything!", "error");
+                  ionicSuperPopup.show("Cancelled", "You opted to give email", "error");
                }
             });
+          };
+
+          function popup3a() {
+            ionicSuperPopup.show("Success!", "Thank you for writing to us, Kindly note your complaint ID " + vm.complaintID + " for future  reference.", "success");
           };
 
   });
