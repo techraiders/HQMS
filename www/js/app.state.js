@@ -11,7 +11,12 @@
         .state('newcomplaint', {
           url: '/new-complaint',
           templateUrl: 'templates/newcomplaint.html',
-          controller: "complaintController as complaintCtrl"
+          controller: "complaintController as complaintCtrl",
+          resolve: {
+            categories: function(complaintsFactory) {
+              return complaintsFactory.getCategory();
+            }
+          }
         })
         .state('survey', {
           url: '/survey',
