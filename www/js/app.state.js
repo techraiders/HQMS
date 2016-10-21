@@ -15,6 +15,9 @@
           resolve: {
             categories: function(complaintsFactory) {
               return complaintsFactory.getCategory();
+            },
+            subCategories: function(complaintsFactory) {
+              return complaintsFactory.getSubCategory();
             }
           }
         })

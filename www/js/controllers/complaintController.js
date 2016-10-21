@@ -3,12 +3,10 @@
 
   angular.module("hospitalApp")
 
-    .controller("complaintController", function($http, complaintsFactory, $state, $rootScope, ionicToast, ionicSuperPopup, categories) {
+    .controller("complaintController", function($http, complaintsFactory, $state, $rootScope, ionicToast, ionicSuperPopup, categories, subCategories) {
       var vm = this;
       vm.categories = categories;
-      complaintsFactory.getSubCategory().then(function(response) {
-        vm.subCategories = response;
-      });
+      vm.subCategories = subCategories;
  
     function showToast(msg, position, stick, disappearDelay){
       ionicToast.show(msg, position, stick, disappearDelay);
