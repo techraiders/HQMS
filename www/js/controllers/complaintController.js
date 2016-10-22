@@ -18,7 +18,6 @@
         complaintsFactory.saveComplaint(new_complaint).then(function(response) {
           console.log("the response is: ", response);
           vm.complaintID = response.complaintID;
-
           vm.complaint = undefined;
           popup3a();
         });
