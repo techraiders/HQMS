@@ -1,43 +1,41 @@
 <ion-pane>
-  <ion-header-bar align-title="center">
-    <h1 class="title">Survey List</h1>
-  </ion-header-bar>
+  <ion-header-bar align-title="center" class="bar-royal">
+    <h1 class="title">Survey</h1>
+  </ion-header-bar>>
 
    <ion-content class="padding">
-    <section class="row">
-      <div class="col">
 
-        <div class="row">
-          <div class="col">
-            <h2 class="balanced" style="background-color:azure;">How will you rate our facilities?</h2>
-          </div><!-- col -->
-        </div><!-- row -->
+    <form>
+      <section class="row" ng-repeat="survey in surveysCtrl.surveys">
+        <div class="col">
 
-        <div class="row">
-          <div class="col">
-            <h3 class="positive">Orthopedics and Joins</h3>
-          </div><!-- col -->
-        </div><!-- row -->
+          <div class="row">
+            <div class="col">
+              <h2 class="balanced" style="background-color:azure;">{{survey.question | capitalize}}</h2>
+            </div><!-- col -->
+          </div><!-- row -->
 
-        <div class="row">
-          <div class="col">
-            <input type="radio" name="Orthopedics"> Excellent
-          </div><!-- col -->
-          <div class="col">
-            <input type="radio" name="Orthopedics"> Very Good
-          </div><!-- col -->
-          <div class="col">
-            <input type="radio" name="Orthopedics"> Good
-          </div><!-- col -->
-          <div class="col">
-            <input type="radio" name="Orthopedics"> Average
-          </div><!-- col -->
-          <div class="col">
-            <input type="radio" name="Orthopedics"> Poor
-          </div><!-- col -->
-        </div><!-- row -->
+          <div class="row">
+            <div class="col">
+              <h3 class="positive">{{survey.title | capitalize}}</h3>
+            </div><!-- col -->
+          </div><!-- row -->
 
-      </div><!-- col -->
-    </section>
+          <div class="row" >
+            <div class="col" ng-repeat="rating in survey.rating">
+              <label>
+                <input type="radio" name="Orthopedics">{{rating}}
+              </label>
+            </div><!-- col -->
+          </div><!-- row -->
+        </div><!-- col -->
+      </section>
+
+      <div class="row">
+        <div class="col col-offset-33">
+          <input type="submit" class="myBtn button card button-royal">
+        </div><!-- col -->
+      </div><!-- row -->
+    </form>
    </ion-content>
 </ion-pane>

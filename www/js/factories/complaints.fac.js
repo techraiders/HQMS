@@ -47,8 +47,6 @@
           data: data,
           url: baseUrl + "/complaints"
         }).success(function (response) {
-          console.log("Data was posted: ", response);
-          console.log(response.complaintID);
           deferred.resolve(response);
         }).error(function (response) {
           console.log("err", response);

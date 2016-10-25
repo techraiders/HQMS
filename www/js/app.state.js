@@ -26,7 +26,13 @@
         .state('survey', {
           url: '/survey',
           templateUrl: 'templates/survey.html',
-          controller: 'surveyController as surveyCtrl'
+          controller: 'surveysController as surveysCtrl',
+          resolve: {
+            surveys: function(surveysFactory, customService) {
+              customService._on();
+              return surveysFactory.getQuestions();
+            }
+          }
         })
       $urlRouterProvider.otherwise('menu');
     });
