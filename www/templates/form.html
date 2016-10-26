@@ -1,13 +1,13 @@
 <ion-pane>
   <ion-header-bar align-title="center" class="bar-royal">
-    <h1 class="title">New Complaint</h1>
+    <h1 class="title">{{pageTitle}}</h1>
   </ion-header-bar>
 
         <ion-content class="padding">
           <div id="newcomplaint">
-            <form name="complaintForm" class="complaintForm" novalidate ng-submit="complaintForm.$valid && complaintCtrl.saveComplaint(complaint)">
+            <form name="complaintForm" class="complaintForm" novalidate ng-submit="complaintForm.$valid && saveComplaint(complaint)">
               <div class="list">
-                <select name="complaintCategory" ng-options="category.id as category.name for category in complaintCtrl.categories track by category.id" ng-model="complaint.categoryId" ng-required="true">
+                <select name="complaintCategory" ng-options="category.id as category.name for category in categories track by category.id" ng-model="complaint.categoryId" ng-required="true">
                   <option value="" style="display:none">Select Category</option>
                 </select>
 
@@ -15,7 +15,7 @@
                     <div ng-messages-include="templates/messages.html"></div>
                   </div><!-- help block -->
 
-                  <select ng-if="complaint.categoryId" id="subCategory" name="complaintSubCategory" ng-options="subCategory.id as subCategory.sname for subCategory in complaintCtrl.subCategories | filter : complaint.categoryId track by subCategory.id" ng-model="complaint.subcatId" ng-required="true">
+                  <select ng-if="complaint.categoryId" id="subCategory" name="complaintSubCategory" ng-options="subCategory.id as subCategory.sname for subCategory in subCategories | filter : complaint.categoryId track by subCategory.id" ng-model="complaint.subcatId" ng-required="true">
                    <option value="" style="display:none">Select subcategory</option>
                   </select>
                     <div class="help-block" ng-if="submitted || complaintForm.complaintSubCategory.$touched" ng-messages="complaintForm.complaintSubCategory.$error">
@@ -33,8 +33,8 @@
                   </div>
 
                 <label class="border-bottom item-floating-label">
-                  <span class="input-label">Your Complaint <sup>*</sup> </span>
-                  <textarea name="complaintDescription" rows="5" placeholder="Your complaint" ng-model="complaint.description" ng-minlength="10" ng-maxlength="1000" ng-required="true"></textarea>
+                  <span class="input-label">{{textAreaPlaceholder}} <sup>*</sup> </span>
+                  <textarea name="complaintDescription" rows="5" placeholder="{{textAreaPlaceholder}}" ng-model="complaint.description" ng-minlength="10" ng-maxlength="1000" ng-required="true"></textarea>
                 </label>
                   <div class="help-block" ng-if="submitted || complaintForm.complaintDescription.$touched" ng-messages="complaintForm.complaintDescription.$error" role="alert">
                     <div ng-message="required">*This field is required.</div>
@@ -62,7 +62,7 @@
                 <span class="input-label">Email address </span>
                 <input type="email" placeholder="Email address (optional)" name="emailId" ng-model="complaint.emailId" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{3,}$/">
               </label>
-                  <div class="help-block" ng-if="complaintCtrl.submitted || complaintForm.emailId.$touched" ng-messages="complaintForm.emailId.$error">
+                  <div class="help-block" ng-if="submitted || complaintForm.emailId.$touched" ng-messages="complaintForm.emailId.$error">
                     <div ng-messages-include="templates/messages.html"></div>
                   </div>
              </div><!-- list -->

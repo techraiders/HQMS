@@ -4,7 +4,7 @@
 
   angular.module("hospitalApp")
 
-    .factory("complaintsFactory", function($http, $q) {
+    .factory("dataFactory", function($http, $q) {
       
       var baseUrl = "http://nxtlife.pythonanywhere.com/";
 
