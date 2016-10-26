@@ -6,30 +6,15 @@
 
     .factory("complaintsFactory", function($http, $q) {
       
-      var baseUrl = "http://nxtlife.pythonanywhere.com";
+      var baseUrl = "http://nxtlife.pythonanywhere.com/";
 
-      var getCategory = function () {
+      var getData = function (x) {
         var deferred = $q.defer();
         $http({
           method: "GET",
           contentType: "application/json",
-          url: baseUrl + "/category"
+          url: baseUrl + x
         }).success(function (response) {        
-          deferred.resolve(response);
-        }).error(function (response) {
-          console.log("err", response)
-          deferred.reject(response);
-        });
-        return deferred.promise;
-      }
-
-      var getSubCategory = function () {
-        var deferred = $q.defer();
-        $http({
-          method: "GET",
-          contentType: "application/json",
-          url: baseUrl + "/subcategory"
-        }).success(function (response) {
           deferred.resolve(response);
         }).error(function (response) {
           console.log("err", response)
@@ -45,7 +30,7 @@
           method: "POST",
           contentType: "application/json",
           data: data,
-          url: baseUrl + "/complaints"
+          url: baseUrl + "complaints"
         }).success(function (response) {
           deferred.resolve(response);
         }).error(function (response) {
@@ -56,8 +41,7 @@
       }
 
       return {
-        getCategory: getCategory,
-        getSubCategory: getSubCategory,
+        getData: getData,
         saveComplaint: saveComplaint
       }
 

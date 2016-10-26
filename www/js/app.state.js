@@ -16,10 +16,11 @@
           resolve: {
             categories: function(complaintsFactory, customService) {
               customService._on();
-              return complaintsFactory.getCategory();
+              return complaintsFactory.getData('category');
             },
-            subCategories: function(complaintsFactory) {
-              return complaintsFactory.getSubCategory();
+            subCategories: function(complaintsFactory,  customService) {
+              customService._on();
+              return complaintsFactory.getData('subcategory');
             }
           }
         })

@@ -6,7 +6,6 @@
     .controller("complaintController", function(complaintsFactory, $state, $rootScope, ionicToast, ionicSuperPopup, categories, subCategories, customService) {
       var vm = this;
       vm.categories = categories;
-      console.log(vm.categories);
       vm.subCategories = subCategories;
 
       customService._off();
