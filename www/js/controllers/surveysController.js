@@ -14,6 +14,6 @@
         	value.rating = vm.rating;
         	//console.log(index);
         });
-        customService._off();
+        customService.spinner_off();
       });
 })();

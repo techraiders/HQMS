@@ -2,7 +2,7 @@
   "use strict";
      angular.module("hospitalApp")
      .factory("customService", function($ionicLoading) {
-      var _on = function () {
+      var spinner_on = function () {
            $ionicLoading.show({
                content: 'android',
                // template: '<ion-spinner icon="android"></ion-spinner>',
@@ -12,12 +12,12 @@
                showDelay: 0
            });
        }
-       var _off = function () {
+       var spinner_off = function () {
            $ionicLoading.hide();
        }
       return {
-        _on:_on,
-        _off:_off
+        spinner_on : spinner_on,
+        spinner_off : spinner_off
       }
 
     });

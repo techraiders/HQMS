@@ -5,7 +5,7 @@
 
         <ion-content class="padding">
           <div id="newcomplaint">
-            <form name="complaintForm" class="complaintForm" novalidate ng-submit="complaintForm.$valid && saveComplaint(complaint)">
+            <form name="complaintForm" class="complaintForm" novalidate ng-submit="complaintForm.$valid && saveData(complaint)">
               <div class="list">
                 <select name="complaintCategory" ng-options="category.id as category.name for category in categories track by category.id" ng-model="complaint.categoryId" ng-required="true">
                   <option value="" style="display:none">Select Category</option>

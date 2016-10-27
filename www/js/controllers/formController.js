@@ -3,20 +3,17 @@
 
   angular.module("hospitalApp")
 
-    .controller("complaintController", function($scope, dataFactory, $rootScope, ionicToast, ionicSuperPopup, categories, subCategories, customService) {
+    .controller("complaintController", function($scope, dataFactory, $rootScope, ionicSuperPopup, categories, subCategories, customService) {
       $scope.categories = categories;
       $scope.subCategories = subCategories;
       $scope.pageTitle = 'New Complaint';
       $scope.textAreaPlaceholder = 'Your complaint';
+      var path = "complaints";
 
-      customService._off();
+      customService.spinner_off();
  
-      function showToast(msg, position, stick, disappearDelay){
-        ionicToast.show(msg, position, stick, disappearDelay);
-      }
-
       function newComplaint(new_complaint) {
-        dataFactory.saveComplaint(new_complaint).then(function(response) {
+        dataFactory.saveData(new_complaint, path).then(function(response) {
           console.log("the response is: ", response);
           $scope.complaintID = response.complaintID;
           $scope.complaint = undefined;
@@ -24,15 +21,14 @@
         });
       }
 
-      function ifValidEmail (new_complaint) {
+      function hasEmail (new_complaint) {
         if (angular.isString(new_complaint.emailId) && new_complaint.emailId) {
-          $scope.isValid = true;
-          return $scope.isValid;
+          return true;
         }
       }
 
-      $scope.saveComplaint = function(new_complaint) {
-        if (ifValidEmail(new_complaint)) {
+      $scope.saveData = function(new_complaint) {
+        if (hasEmail(new_complaint)) {
           newComplaint(new_complaint);
         }
         else {
@@ -67,19 +63,21 @@
           ionicSuperPopup.show("Success!", "Thank you for writing to us, Kindly note your complaint ID " + $scope.complaintID + " for future  reference.", "success");
         };
   })
-  .controller("suggestionController", function($scope, categories, subCategories, customService) {
+  .controller("suggestionController", function($scope, categories, subCategories, customService, dataFactory) {
     $scope.categories = categories;
     $scope.subCategories = subCategories;
     $scope.pageTitle = 'New Suggestion';
     $scope.textAreaPlaceholder = 'Your suggestion';
-    customService._off();
+    customService.spinner_off();
+
+    
   })
   .controller("appreciationController", function($scope, categories, subCategories, customService) {
     $scope.categories = categories;
     $scope.subCategories = subCategories;
     $scope.pageTitle = 'New Appreciation';
     $scope.textAreaPlaceholder = 'Your appreciation';
-    customService._off();
+    customService.spinner_off();
   });
 
 })();

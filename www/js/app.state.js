@@ -15,7 +15,7 @@
           controller: 'surveysController as surveysCtrl',
           resolve: {
             surveys: function(surveysFactory, customService) {
-              customService._on();
+              customService.spinner_on();
               return surveysFactory.getQuestions();
             }
           }
@@ -26,11 +26,11 @@
           controller: "complaintController as complaintCtrl",
           resolve: {
             categories: function(dataFactory, customService) {
-              customService._on();
+              customService.spinner_on();
               return dataFactory.getData('category');
             },
             subCategories: function(dataFactory,  customService) {
-              customService._on();
+              customService.spinner_on();
               return dataFactory.getData('subcategory');
             }
           }
@@ -41,11 +41,11 @@
           controller: "suggestionController as suggestionCtrl",
           resolve: {
             categories: function(dataFactory, customService) {
-              customService._on();
+              customService.spinner_on();
               return dataFactory.getData('category');
             },
             subCategories: function(dataFactory,  customService) {
-              customService._on();
+              customService.spinner_on();
               return dataFactory.getData('subcategory');
             }
           }
@@ -56,11 +56,11 @@
           controller: "appreciationController as appreciationCtrl",
           resolve: {
             categories: function(dataFactory, customService) {
-              customService._on();
+              customService.spinner_on();
               return dataFactory.getData('category');
             },
             subCategories: function(dataFactory,  customService) {
-              customService._on();
+              customService.spinner_on();
               return dataFactory.getData('subcategory');
             }
           }
