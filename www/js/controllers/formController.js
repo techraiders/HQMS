@@ -41,7 +41,7 @@
       function popup5(new_complaint) {
           ionicSuperPopup.show({
             title: "Are you sure to submit without email?",
-            text: "can't track without email",
+            text: "You won't be able to track your complaint if you don't provide your email.",
              type: "warning",
              showCancelButton: true,
              confirmButtonColor: "#DD6B55",confirmButtonText: "Yes, Just submit!",
@@ -54,23 +54,23 @@
                 newComplaint(new_complaint);
                 console.log("you opted not to give email");
              } else {
-                ionicSuperPopup.show("Cancelled", "You opted to give email", "error");
+                //ionicSuperPopup.show("Cancelled", "You opted to give email", "error");
+                $scope.x = 'ng-invalid ng-touched';
+                document.getElementById("emailId").focus();
              }
           });
         };
 
         function popup3a() {
           ionicSuperPopup.show("Success!", "Thank you for writing to us, Kindly note your complaint ID " + $scope.complaintID + " for future  reference.", "success");
-        };
+        }
   })
   .controller("suggestionController", function($scope, categories, subCategories, customService, dataFactory) {
     $scope.categories = categories;
     $scope.subCategories = subCategories;
     $scope.pageTitle = 'New Suggestion';
     $scope.textAreaPlaceholder = 'Your suggestion';
-    customService.spinner_off();
-
-    
+    customService.spinner_off();    
   })
   .controller("appreciationController", function($scope, categories, subCategories, customService) {
     $scope.categories = categories;
