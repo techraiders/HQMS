@@ -23,9 +23,9 @@
             </div><!-- row -->
 
             <div class="row">
-              <div class="col" ng-repeat="rating in survey.rating">
+              <div class="col" ng-repeat="choice in survey.choices.split(',')">
                 <label>
-                  <input type="radio" name="Orthopedics">{{rating}}
+                  <input type="radio" name="Orthopedics">{{choice}}
                 </label>
               </div><!-- col -->
             </div><!-- row -->

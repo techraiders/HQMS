@@ -11,10 +11,11 @@
         <p class="positive">{{q.title}}</p>
         <div class="range range-positive">
           <i class="icon ion-ios-sunny-outline"></i>
-          <input type="range" name="volume" min="0" max="100" value="33">
+          <input type="range" name="volume" min="0" max="100" ng-value="33" ng-model="x" ng-init="33">
+          {{x}}
           <i class="icon ion-ios-sunny"></i>
-        </div><!-- item -->
-      </div><!-- list -->
+        </div>
+      </div>
       <div class="row">
         <div class="col col-offset-33">
           <input type="submit" class="myBtn button card button-royal" value="SUBMIT">
