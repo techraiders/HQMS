@@ -20,6 +20,17 @@
             }
           }
         })
+        .state('slider', {
+          url: '/slider',
+          templateUrl: 'templates/slider.html',
+          controller: 'surveysController as surveysCtrl',
+          resolve: {
+            surveys: function(surveysFactory, customService) {
+              customService.spinner_on();
+              return surveysFactory.getQuestions();
+            }
+          }
+        })
         .state('newcomplaint', {
           url: '/new-complaint',
           templateUrl: 'templates/form.html',

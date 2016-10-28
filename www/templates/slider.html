@@ -1,0 +1,25 @@
+<ion-pane>
+  <ion-header-bar align-title="center" class="bar-royal">
+    <h1 class="title">SURVEY</h1>
+  </ion-header-bar>>
+
+   <ion-content class="padding">
+
+    <form id="surveyForm">
+      <div class="list" ng-repeat="q in surveysCtrl.sliderQuestions">
+        <h4 class="balanced" style="background-color:azure;">{{$index + 1 + ". "}} {{q.question}}</h4>
+        <p class="positive">{{q.title}}</p>
+        <div class="range range-positive">
+          <i class="icon ion-ios-sunny-outline"></i>
+          <input type="range" name="volume" min="0" max="100" value="33">
+          <i class="icon ion-ios-sunny"></i>
+        </div><!-- item -->
+      </div><!-- list -->
+      <div class="row">
+        <div class="col col-offset-33">
+          <input type="submit" class="myBtn button card button-royal" value="SUBMIT">
+        </div>
+      </div>
+    </form>
+   </ion-content>
+</ion-pane>
