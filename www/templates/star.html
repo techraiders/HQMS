@@ -1,0 +1,35 @@
+<ion-pane>
+  <ion-header-bar align-title="center" class="bar-royal">
+    <h1 class="title">SURVEY</h1>
+    <style type="text/css">
+      .ionic_ratings .icon {
+        font-size:50px;
+      }
+
+      .ionic_ratings .read_only {
+        pointer-events:none;
+      }
+    </style>
+  </ion-header-bar>
+    
+  <ion-content>
+    <div class="row">
+      <div class="col">
+        <form>
+          <div ng-repeat="q in surveysCtrl.starQuestions">
+            <h4 class="balanced" style="background-color:azure;">{{$index +1 + "."}} {{q.question}}</h4>
+            <p class="positive">{{q.title}}</p>
+              <ionic-ratings ratingsobj='surveysCtrl.ratingsObject' index='$index'></ionic-ratings>
+          </div><!-- question -->
+          <div class="row">
+            <div class="col col-offset-33">
+              <input type="submit" class="myBtn button card button-royal" value="SUBMIT">
+            </div>
+          </div>
+        </form>
+        {{choice}}
+      </div><!-- col -->
+    </div><!-- row -->
+
+  </ion-content>
+</ion-pane>

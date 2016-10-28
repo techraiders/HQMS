@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "angular-ripple": "*",
-    "ionic-toast": "^0.4.1"
+    "ionic-toast": "^0.4.1",
+    "ionic-ratings": "^0.3.0"
   }
 }

@@ -6,8 +6,10 @@ platforms/
 plugins/
 www/lib/
 www/img/
+images/
 
 .sass-cache/
 *.css.map
 *.css
 *.jpg
+*.psd
