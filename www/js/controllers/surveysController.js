@@ -3,11 +3,12 @@
 
   angular
     .module("hospitalApp")
-      .controller("surveysController", function(surveys, customService, $http) {
+      .controller("surveysController", function(surveys, customService, $http, dataFactory) {
         var vm = this;
         vm.surveys = surveys;
+        var path = "answer/";
 
-        console.log(vm.surveys);
+        //console.log(vm.surveys);
 
         vm.val = function(choice) {
           console.log(choice);
@@ -79,7 +80,7 @@
         vm.ratingsObject = {
           iconOn : 'ion-ios-star',
           iconOff : 'ion-ios-star-outline',
-          iconOnColor: 'rgb(200, 200, 100)',
+          iconOnColor: 'rgb(200, 210, 0)',
           iconOffColor:  'rgb(200, 100, 100)',
           rating:  2,
           minRating:1,
@@ -89,10 +90,14 @@
         };
 
         vm.ratingsCallback = function(rating) {
-          console.log('Selected rating is : ', rating);
+          //console.log('Selected rating is : ', rating);
+          var obj = {"question": 11, "answer": rating};
+
+          dataFactory.saveData(obj, path).then(function(response) {
+            console.log("Server Responded: ", response);
+          });
         };
 
-        //console.log(vm.sliderQuestions);
         customService.spinner_off();
       });
 })();

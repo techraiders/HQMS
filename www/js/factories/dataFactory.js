@@ -25,7 +25,7 @@
 
       var saveData = function (data, path) {
         var deferred = $q.defer();
-        console.log("Data being posted is: ", data);
+        console.log("Client sent: ", data);
         $http({
           method: "POST",
           contentType: "application/json",

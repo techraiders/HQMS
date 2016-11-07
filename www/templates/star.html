@@ -19,15 +19,15 @@
           <div ng-repeat="q in surveysCtrl.starQuestions">
             <h4 class="balanced" style="background-color:azure;">{{$index +1 + "."}} {{q.question}}</h4>
             <p class="positive">{{q.title}}</p>
-              <ionic-ratings ratingsobj='surveysCtrl.ratingsObject' index='$index'></ionic-ratings>
+              <ionic-ratings ratingsobj='surveysCtrl.ratingsObject' index='$index' ng-model="x"></ionic-ratings>
           </div><!-- question -->
           <div class="row">
             <div class="col col-offset-33">
-              <input type="submit" class="myBtn button card button-royal" value="SUBMIT">
-            </div>
-          </div>
+              <input type="submit" class="myBtn button card button-royal" value="SUBMIT" ng-click="surveysCtrl.getObj(obj)">
+            </div><!-- col -->
+          </div><!-- row -->
         </form>
-        {{choice}}
+        <pre><p>{{x| json}}</p></pre>
       </div><!-- col -->
     </div><!-- row -->
 

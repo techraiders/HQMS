@@ -21,15 +21,13 @@
               </div><!-- col -->
             </div><!-- row -->
 
-            <div class="row" class="answer">
+            <div class="row">
               <div class="col" ng-repeat="choice in survey.choices.split(',')" ng-if="survey.question_type == 'radio'">
                 <label>
-                  <input type="radio" name="Orthopedics">{{choice}}
+                  <input type="radio" name="Orthopedics"> {{choice}}
                 </label>
-
-        <!-- <pre><p>{{survey | json }}</p></pre> -->
-
               </div><!-- col -->
+
               <div class="col" ng-if="survey.question_type == 'text'">
                 <textarea></textarea>
               </div>
