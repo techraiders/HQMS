@@ -15,30 +15,27 @@
             </div><!-- col -->
           </div><!-- row -->
 
-          <div ng-hide="$last">
             <div class="row">
               <div class="col">
                 <h3 class="positive">{{survey.title | capitalize}}</h3>
               </div><!-- col -->
             </div><!-- row -->
 
-            <div class="row">
-              <div class="col" ng-repeat="choice in survey.choices.split(',')">
+            <div class="row" class="answer">
+              <div class="col" ng-repeat="choice in survey.choices.split(',')" ng-if="survey.question_type == 'radio'">
                 <label>
                   <input type="radio" name="Orthopedics">{{choice}}
                 </label>
-              </div><!-- col -->
-            </div><!-- row -->
-          </div>
 
+        <!-- <pre><p>{{survey | json }}</p></pre> -->
+
+              </div><!-- col -->
+              <div class="col" ng-if="survey.question_type == 'text'">
+                <textarea></textarea>
+              </div>
+            </div><!-- row -->
         </div><!-- col -->
       </section>
-
-      <div class="row">
-        <div class="col">
-          <textarea placeholder="Comment here"></textarea>
-        </div><!-- col -->
-      </div><!-- row -->
 
       <div class="row">
         <div class="col col-offset-33">

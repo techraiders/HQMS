@@ -7,6 +7,8 @@
         var vm = this;
         vm.surveys = surveys;
 
+        console.log(vm.surveys);
+
         vm.val = function(choice) {
           console.log(choice);
         }
