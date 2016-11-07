@@ -7,7 +7,6 @@
         var vm = this;
         vm.surveys = surveys;
 
-
         vm.val = function(choice) {
           console.log(choice);
         }
@@ -74,6 +73,22 @@
             "choices":['1', '2', '3', '4', '5']
           }
         ];
+
+        vm.ratingsObject = {
+          iconOn : 'ion-ios-star',
+          iconOff : 'ion-ios-star-outline',
+          iconOnColor: 'rgb(200, 200, 100)',
+          iconOffColor:  'rgb(200, 100, 100)',
+          rating:  2,
+          minRating:1,
+          callback: function(rating) {
+            vm.ratingsCallback(rating);
+          }
+        };
+
+        vm.ratingsCallback = function(rating) {
+          console.log('Selected rating is : ', rating);
+        };
 
         //console.log(vm.sliderQuestions);
         customService.spinner_off();
