@@ -14,9 +14,9 @@
           templateUrl: 'templates/survey.html',
           controller: 'surveysController as surveysCtrl',
           resolve: {
-            surveys: function(surveysFactory, customService) {
+            surveys: function(dataFactory, customService) {
               customService.spinner_on();
-              return surveysFactory.getQuestions();
+              return dataFactory.getData('questions');
             }
           }
         })
@@ -25,9 +25,9 @@
           templateUrl: 'templates/slider.html',
           controller: 'surveysController as surveysCtrl',
           resolve: {
-            surveys: function(surveysFactory, customService) {
+            surveys: function(dataFactory, customService) {
               customService.spinner_on();
-              return surveysFactory.getQuestions();
+              return dataFactory.getData('questions');
             }
           }
         })
@@ -36,9 +36,9 @@
           templateUrl: 'templates/star.html',
           controller: 'surveysController as surveysCtrl',
           resolve: {
-            surveys: function(surveysFactory, customService) {
+            surveys: function(dataFactory, customService) {
               customService.spinner_on();
-              return surveysFactory.getQuestions();
+              return dataFactory.getData('questions');
             }
           }
         })

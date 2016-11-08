@@ -70,7 +70,10 @@
     $scope.subCategories = subCategories;
     $scope.pageTitle = 'New Suggestion';
     $scope.textAreaPlaceholder = 'Your suggestion';
-    customService.spinner_off();    
+    customService.spinner_off();
+
+    
+    
   })
   .controller("appreciationController", function($scope, categories, subCategories, customService) {
     $scope.categories = categories;
