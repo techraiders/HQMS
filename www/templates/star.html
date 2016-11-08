@@ -16,10 +16,13 @@
     <div class="row">
       <div class="col">
         <form>
-          <div ng-repeat="q in surveysCtrl.starQuestions">
-            <h4 class="balanced" style="background-color:azure;">{{$index +1 + "."}} {{q.question}}</h4>
-            <p class="positive">{{q.title}}</p>
-              <ionic-ratings ratingsobj='surveysCtrl.ratingsObject' index='$index' ng-model="x"></ionic-ratings>
+          <div ng-repeat="survey in surveysCtrl.starQuestions">
+            <h4 class="balanced" style="background-color:azure;">{{$index +1 + "."}} {{survey.question}}</h4>
+            <p class="positive">{{survey.title}}</p>
+              <ionic-ratings ratingsobj='surveysCtrl.ratingsObject' index='$index' ng-model="x"  ng-if="survey.question_type == 'radio'"></ionic-ratings>
+               <div class="col" ng-if="survey.question_type == 'text'">
+                <textarea style="width:100%;height:auto;" rows="6"></textarea>
+              </div>
           </div><!-- question -->
           <div class="row">
             <div class="col col-offset-33">

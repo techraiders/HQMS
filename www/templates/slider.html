@@ -6,19 +6,24 @@
    <ion-content class="padding">
 
     <form id="surveyForm">
-      <div class="list" ng-repeat="q in surveysCtrl.sliderQuestions">
-        <h4 class="balanced" style="background-color:azure;">{{$index + 1 + ". "}} {{q.question}}</h4>
-        <p class="positive">{{q.title}}</p>
-        <div class="range range-positive">
+      <div class="list" ng-repeat="survey in surveysCtrl.sliderQuestions">
+        <h4 class="balanced" style="background-color:azure;">{{$index + 1 + ". "}} {{survey.question}}</h4>
+        <p class="positive">{{survey.title}}</p>
+        <div class="range range-positive" ng-if="survey.question_type == 'radio'">
           <i class="icon ion-ios-sunny-outline"></i>
           <input type="range" name="volume" min="0" max="100" ng-value="33" ng-model="x" ng-init="33">
           {{x}}
           <i class="icon ion-ios-sunny"></i>
         </div>
+
+        <div class="col" ng-if="survey.question_type == 'text'">
+          <textarea></textarea>
+        </div>
+
       </div>
       <div class="row">
         <div class="col col-offset-33">
-          <input type="submit" class="myBtn button card button-royal" value="SUBMIT" ui-sref="star">
+          <input type="submit" class="myBtn button card button-royal" value="NEXT" ui-sref="star">
         </div>
       </div>
     </form>

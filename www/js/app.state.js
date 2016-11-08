@@ -45,7 +45,7 @@
         .state('newcomplaint', {
           url: '/new-complaint',
           templateUrl: 'templates/form.html',
-          controller: "FormController as complaintCtrl",
+          controller: "FormController",
           resolve: {
             setPageVariables: function() {
               return {
@@ -67,7 +67,7 @@
         .state('newsuggestion', {
           url: '/new-suggestion',
           templateUrl: 'templates/form.html',
-          controller: "FormController as complaintCtrl",
+          controller: "FormController",
           resolve: {
             setPageVariables: function() {
               return {
@@ -89,7 +89,7 @@
         .state('newappreciation', {
           url: '/new-appreciation',
           templateUrl: 'templates/form.html',
-          controller: "FormController as complaintCtrl",
+          controller: "FormController",
           resolve: {
             setPageVariables: function() {
               return {

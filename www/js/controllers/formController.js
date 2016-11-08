@@ -5,21 +5,20 @@
 
     .controller("FormController", function($scope, dataFactory, $rootScope, ionicSuperPopup, categories,
       subCategories, customService, setPageVariables) {
+
       $scope.categories = categories;
       $scope.subCategories = subCategories;
-          
+
       customService.spinner_off();
 
-      console.log(setPageVariables);
-
-      // SETTING PAGE VARIABLES USING setPageVariables provider made in app.state resolve
+      /* SETTING PAGE VARIABLES USING setPageVariables provider made in app.state resolve property */
       $scope.pageTitle = setPageVariables.pageTitle;
       $scope.textAreaPlaceholder = setPageVariables.textAreaPlaceholder;
       $scope.path = setPageVariables.path;
  
       function newComplaint(new_complaint) {
         dataFactory.saveData(new_complaint, $scope.path).then(function(response) {
-          console.log("the response is: ", response);
+          console.log("Server Responded: ", response);
           $scope.complaintID = response.complaintID;
           $scope.complaint = undefined;
           popup3a();
@@ -48,8 +47,10 @@
             title: "Are you sure to submit without email?",
             text: "You won't be able to track your complaint if you don't provide your email.",
              type: "warning",
+             xyz: "abc",
              showCancelButton: true,
-             confirmButtonColor: "#DD6B55",confirmButtonText: "Yes, Just submit!",
+             confirmButtonColor: "#DD6B55",
+             confirmButtonText: "Yes, Just submit!",
              cancelButtonText: "No, I'll give email",
              closeOnConfirm: true,
              closeOnCancel: true },
@@ -66,8 +67,16 @@
           });
         };
 
+        function acknowledge() {
+          if ($scope.complaintID) {
+            return  "Thank you for writing to us. Kindly note your complaint ID " + $scope.complaintID + " for future  reference.";
+          } else {
+            return "Thank you for writing to us.";
+          }
+        }
+
         function popup3a() {
-          ionicSuperPopup.show("Success!", "Thank you for writing to us, Kindly note your complaint ID " + $scope.complaintID + " for future  reference.", "success");
+          ionicSuperPopup.show("Success!", acknowledge());
         }
   });
 
