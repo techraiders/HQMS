@@ -5,8 +5,8 @@
     .module("hospitalApp")
       .controller("surveysController", function(surveys, customService, $http, dataFactory) {
         var vm = this;
-        vm.surveys = surveys;
-        var path = "answer/";
+        vm.starQuestions = vm.sliderQuestions = vm.surveys = surveys;
+        var path = "answer";
 
         //console.log(vm.surveys);
 
@@ -14,7 +14,7 @@
           console.log(choice);
         }
 
-        vm.sliderQuestions = [
+        /*vm.sliderQuestions = [
           {
             "id": 9,
             "question": "How much is your budget?",
@@ -39,7 +39,7 @@
             "survey": 1,
             "question_type": "range",
           }
-        ];
+        ]; 
 
         vm.starQuestions = [
           {
@@ -75,7 +75,7 @@
             "question_type": "range",
             "choices":['1', '2', '3', '4', '5']
           }
-        ];
+        ]; */
 
         vm.ratingsObject = {
           iconOn : 'ion-ios-star',
