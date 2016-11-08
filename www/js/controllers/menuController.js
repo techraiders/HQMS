@@ -3,7 +3,7 @@
 
   angular
     .module("hospitalApp")
-      .controller("menuController", function() {
+      .controller("menuController", function($scope) {
         var vm = this;
       });
 })();

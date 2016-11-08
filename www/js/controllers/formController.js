@@ -3,17 +3,22 @@
 
   angular.module("hospitalApp")
 
-    .controller("complaintController", function($scope, dataFactory, $rootScope, ionicSuperPopup, categories, subCategories, customService) {
+    .controller("FormController", function($scope, dataFactory, $rootScope, ionicSuperPopup, categories,
+      subCategories, customService, setPageVariables) {
       $scope.categories = categories;
       $scope.subCategories = subCategories;
-      $scope.pageTitle = 'New Complaint';
-      $scope.textAreaPlaceholder = 'Your complaint';
-      var path = "complaints";
-
+          
       customService.spinner_off();
+
+      console.log(setPageVariables);
+
+      // SETTING PAGE VARIABLES USING setPageVariables provider made in app.state resolve
+      $scope.pageTitle = setPageVariables.pageTitle;
+      $scope.textAreaPlaceholder = setPageVariables.textAreaPlaceholder;
+      $scope.path = setPageVariables.path;
  
       function newComplaint(new_complaint) {
-        dataFactory.saveData(new_complaint, path).then(function(response) {
+        dataFactory.saveData(new_complaint, $scope.path).then(function(response) {
           console.log("the response is: ", response);
           $scope.complaintID = response.complaintID;
           $scope.complaint = undefined;
@@ -64,23 +69,6 @@
         function popup3a() {
           ionicSuperPopup.show("Success!", "Thank you for writing to us, Kindly note your complaint ID " + $scope.complaintID + " for future  reference.", "success");
         }
-  })
-  .controller("suggestionController", function($scope, categories, subCategories, customService, dataFactory) {
-    $scope.categories = categories;
-    $scope.subCategories = subCategories;
-    $scope.pageTitle = 'New Suggestion';
-    $scope.textAreaPlaceholder = 'Your suggestion';
-    customService.spinner_off();
-
-    
-    
-  })
-  .controller("appreciationController", function($scope, categories, subCategories, customService) {
-    $scope.categories = categories;
-    $scope.subCategories = subCategories;
-    $scope.pageTitle = 'New Appreciation';
-    $scope.textAreaPlaceholder = 'Your appreciation';
-    customService.spinner_off();
   });
 
 })();

@@ -45,8 +45,15 @@
         .state('newcomplaint', {
           url: '/new-complaint',
           templateUrl: 'templates/form.html',
-          controller: "complaintController as complaintCtrl",
+          controller: "FormController as complaintCtrl",
           resolve: {
+            setPageVariables: function() {
+              return {
+                "pageTitle" : "New Complaint",
+                "textAreaPlaceholder" : 'Your complaint',
+                "path" : "complaints"
+              }
+            },
             categories: function(dataFactory, customService) {
               customService.spinner_on();
               return dataFactory.getData('category');
@@ -60,8 +67,15 @@
         .state('newsuggestion', {
           url: '/new-suggestion',
           templateUrl: 'templates/form.html',
-          controller: "suggestionController as suggestionCtrl",
+          controller: "FormController as complaintCtrl",
           resolve: {
+            setPageVariables: function() {
+              return {
+                "pageTitle" : "New Suggestion",
+                "textAreaPlaceholder" : "Your suggestion",
+                "path" : "suggestions"
+              }
+            },
             categories: function(dataFactory, customService) {
               customService.spinner_on();
               return dataFactory.getData('category');
@@ -75,8 +89,15 @@
         .state('newappreciation', {
           url: '/new-appreciation',
           templateUrl: 'templates/form.html',
-          controller: "appreciationController as appreciationCtrl",
+          controller: "FormController as complaintCtrl",
           resolve: {
+            setPageVariables: function() {
+              return {
+                "pageTitle" : "New Appreciation",
+                "textAreaPlaceholder" : 'Your appreciation',
+                "path" : "appreciations"
+              }
+            },
             categories: function(dataFactory, customService) {
               customService.spinner_on();
               return dataFactory.getData('category');
